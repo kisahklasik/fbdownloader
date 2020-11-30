@@ -1,7 +1,9 @@
 import { Application } from "https://deno.land/x/oak/mod.ts";
+import { oakCors } from "https://deno.land/x/cors/mod.ts";
 import { soxa } from 'https://deno.land/x/soxa/mod.ts'
 
 const app = new Application();
+app.use(oakCors())
 
 app.use(async (ctx) => {
     const url = await ctx.request.url.searchParams.get('url');
