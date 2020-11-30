@@ -31,7 +31,7 @@ router.get('/', async (ctx) => {
 });
 
 const app = new Application();
-app.use(oakCors())
+app.use(oakCors({ origin: true }))
 app.use(router.routes())
 
 export default app.handle
