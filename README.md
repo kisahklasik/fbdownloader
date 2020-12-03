@@ -13,7 +13,6 @@ Response:
     "error": false,
     "message": "Success get content",
     "title": "Lorem Ipsum | Facebook",
-    "image": "THUMBNAIL_IMAGE_URL",
     "url": "VIDEO_URL"
 }
 ```
