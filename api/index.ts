@@ -28,12 +28,20 @@ app.use(async (ctx) => {
 
         try {
             
-            body = JSON.stringify({
-                error: false,
-                message: 'Success get content',
-                title: title?.[1],
-                url: video?.[1] ? decodeURIComponent(video?.[1]).replace(/&amp;/g, '&') : ''
-            })
+            if (video?.[1]) {
+
+                body = JSON.stringify({
+                    error: false,
+                    message: 'Success get content',
+                    title: title?.[1],
+                    url: video?.[1] ? decodeURIComponent(video?.[1]).replace(/&amp;/g, '&') : ''
+                })
+
+            } else {
+
+                throw new Error('Can\'t found content');
+                
+            }
 
         } catch (error) {
             
