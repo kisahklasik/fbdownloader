@@ -1,5 +1,9 @@
 # fbdown
+
 Facebook Video Downloader API built with Deno.
+
+> The vercel demo site seems blocked by Facebook make it won't work anymore but still work if you run the API locally in your machine.
+
 
 ``` bash
 curl https://fbdown.now.sh/?url=<URL_VIDEO>
@@ -31,7 +35,7 @@ It just open the facebook video page with WAP user agent (i.e. Nokia E63) then p
 
 ## Disclaimer
 
-The facebook video url must public accessible and not private, note that vercel demo site seems blocked by Facebook make it won't work anymore but still work if you run the API locally in your machine.
+The facebook video url must public accessible and not private to get it work.
 
 ## Usage
 
