@@ -71,7 +71,9 @@ app.use(async (ctx) => {
 
 });
 
-// console.log('Serving on http://localhost:8000')
-// await app.listen({ port: 8000 });
+// Local server
+console.log('Serving on http://localhost:8000')
+await app.listen({ port: 8000 });
 
+// Vercel function
 export default app.handle
