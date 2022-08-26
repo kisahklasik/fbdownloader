@@ -1,4 +1,4 @@
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 
 const app = new Application();
 
@@ -70,5 +70,8 @@ app.use(async (ctx) => {
     ctx.response.body = body
 
 });
+
+// console.log('Serving on http://localhost:8000')
+// await app.listen({ port: 8000 });
 
 export default app.handle
