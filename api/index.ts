@@ -7,7 +7,7 @@ app.use(async (ctx) => {
     // Set header to use Nokia Browser User-Agent
     const config = {
         headers: {
-            'User-Agent': 'Mozilla/5.0 (SymbianOS/9.2; U; Series60/3.1 NOKIAE63/1.0; Profile/MIDP-2.0 Configuration/CLDC-1.1) AppleWebKit/413 (KHTML, like Gecko) Safari/413'
+            'User-Agent': 'UCWEB/2.0 (Symbian; U; S60 V3; en-US; NokiaE63) U2/1.0.0 UCBrowser/9.2.0.336 U2/1.0.0 Mobile'
         }
     }
 
@@ -24,7 +24,7 @@ app.use(async (ctx) => {
     if (data) {
 
         const title = /<title>(.*?)<\/title>/.exec(data)
-        const video = /\?src=(.*?)['"]/.exec(data)
+        const video = /\/video_redirect\/\?src=(.*?)"/.exec(data)
 
         try {
             
