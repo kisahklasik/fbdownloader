@@ -37,7 +37,7 @@ export default async function handler(request, response) {
     if (hd?.length) {
         result = { ...result, hd: (hd[1])
             .replaceAll('\\/', '/')
-            .replaceAll('\\u00252B', '+')
+            // .replaceAll('\\u00252B', '+')
             .replaceAll('\\u00253D', '=')
         }
     }
@@ -45,7 +45,7 @@ export default async function handler(request, response) {
     if (sd?.length) {
         result = { ...result, sd: (sd[1])
             .replaceAll('\\/', '/')
-            .replaceAll('\\u00252B', '+')
+            // .replaceAll('\\u00252B', '+')
             .replaceAll('\\u00253D', '=')
         }
     }
