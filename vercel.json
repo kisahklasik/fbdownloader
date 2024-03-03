@@ -1,9 +1,12 @@
 {
 	"version": 2,
-	"functions": {
-		"api/**/*.[jt]s": { "runtime": "vercel-deno@2.0.1" }
-	},
 	"rewrites": [
-		{ "source": "/(.*?)", "destination": "/api" }
-	]
+		{
+			"source": "/api/(.*)",
+			"destination": "/(.*)"
+		}
+	],
+	"buildCommand": "pnpx puppeteer browsers install chrome",
+	"installCommand": "pnpm i",
+	"outputDirectory": "."
 }
