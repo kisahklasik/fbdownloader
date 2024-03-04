@@ -35,19 +35,11 @@ export default async function handler(request, response) {
     const sd = html.match('"browser_native_sd_url":"(.*?)"')
 
     if (hd?.length) {
-        result = { ...result, hd: (hd[1])
-            .replaceAll('\\/', '/')
-            // .replaceAll('\\u00252B', '+')
-            .replaceAll('\\u00253D', '=')
-        }
+        result = { ...result, hd: JSON.parse(`["${hd[1]}"]`)[0] }
     }
 
     if (sd?.length) {
-        result = { ...result, sd: (sd[1])
-            .replaceAll('\\/', '/')
-            // .replaceAll('\\u00252B', '+')
-            .replaceAll('\\u00253D', '=')
-        }
+        result = { ...result, sd: JSON.parse(`["${sd[1]}"]`)[0] }
     }
 
     // console.log(result)
