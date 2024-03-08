@@ -6,10 +6,40 @@
     <title>fbdown</title>
 </head>
 <body>
-    <form action="/api/get" method="get">
-        <input type="text" name="url"
-            placeholder="https://web.facebook.com/reel/1234567890" />
+    <form action="#" id="form">
+        <input
+            type="text"
+            name="url"
+            placeholder="https://web.facebook.com/reel/1234567890"
+        />
         <button type="submit">Submit</button>
+        <button type="reset">Clear</button>
     </form>
+    <div style="display: none;" id="loading">Downloading content ...</div>
+    <a style="display: none;" target="_blank" id="result-hd">Download HD</a>
+    <a style="display: none;" target="_blank" id="result-sd">Download SD</a>
+    <script>
+        const $ = q => document.querySelector(q)
+        $('#form').onsubmit = async (e) => {
+            e.preventDefault()
+            $('#loading').style.display = 'block'
+            $('#result-hd').style.display = 'none'
+            $('#result-sd').style.display = 'none'
+            const url = $('#form input[name=url]').value
+            const resp = await fetch(`/api/get?url=${url}`).then(r => r.json())
+            if (resp.hd) {
+                $('#result-hd').style.display = 'block'
+                $('#result-hd').href = resp.hd
+            }
+            if (resp.sd) {
+                $('#result-sd').style.display = 'block'
+                $('#result-sd').href = resp.sd
+            }
+            if (resp.error) {
+                alert(resp.error)
+            }
+            $('#loading').style.display = 'none'
+        }
+    </script>
 </body>
 </html>
