@@ -39,6 +39,9 @@
             if (resp.error) {
                 alert(resp.error)
             }
+            if (resp.status == 500) {
+                alert('Internal server error')
+            }
             $('#loading').style.display = 'none'
         }
     </script>
