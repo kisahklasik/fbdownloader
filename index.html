@@ -1,86 +1,86 @@
 <!doctype html>
 <html>
 <head>
-    <title>Facebook Downloader</title>
+<title>Facebook Downloader</title>
 
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+<meta charset="utf-8" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style type="text/css">
+body {
+background-color: #f0f0f2;
+margin: 0;
+padding: 0;
+font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         
-    }
-    main {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        main {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+}
+main {
+width: 600px;
+margin: 5em auto;
+padding: 2em;
+background-color: #fdfdff;
+border-radius: 0.5em;
+box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+}
+a:link, a:visited {
+color: #38488f;
+text-decoration: none;
+}
+@media (max-width: 700px) {
+main {
+margin: 0 auto;
+width: auto;
+}
+}
+</style>    
 </head>
 
 <body>
 <main>
-    <h1>Facebook Downloader</h1>
-    <p>
-    <form action="#" id="form">
-        <input
-            type="text"
-            name="url"
-            placeholder="https://web.facebook.com/reel/1234567890"
-        />
-        <button type="submit">Submit</button>
-        <button type="reset">Clear</button>
-    </form>
+<h1>Facebook Downloader</h1>
+<p>
+<form action="#" id="form">
+<input
+type="text"
+name="url"
+placeholder="https://web.facebook.com/reel/1234567890"
+/>
+<button type="submit">Submit</button>
+<button type="reset">Clear</button>
+</form>
 </p>
-    <p>
-    <div style="display: none;" id="loading">Downloading content ...</div>
-    <a style="display: none;" target="_blank" id="result-hd">Download HD</a>
-    <a style="display: none;" target="_blank" id="result-sd">Download SD</a>
-    </p>
-    </main>
+<p>
+<div style="display: none;" id="loading">Downloading content ...</div>
+<a style="display: none;" target="_blank" id="result-hd">Download HD</a>
+<a style="display: none;" target="_blank" id="result-sd">Download SD</a>
+</p>
+</main>
 
-        <script>
-        const $ = q => document.querySelector(q)
-        $('#form').onsubmit = async (e) => {
-            e.preventDefault()
-            $('#loading').style.display = 'block'
-            $('#result-hd').style.display = 'none'
-            $('#result-sd').style.display = 'none'
-            const url = $('#form input[name=url]').value
-            const resp = await fetch(`/api/get?url=${url}`).then(r => r.json())
-            if (resp.hd) {
-                $('#result-hd').style.display = 'block'
-                $('#result-hd').href = resp.hd
-            }
-            if (resp.sd) {
-                $('#result-sd').style.display = 'block'
-                $('#result-sd').href = resp.sd
-            }
-            if (resp.error) {
-                alert(resp.error)
-            }
-            if (resp.status == 500) {
-                alert('Internal server error')
-            }
-            $('#loading').style.display = 'none'
-        }
-    </script>
+<script>
+const $ = q => document.querySelector(q)
+$('#form').onsubmit = async (e) => {
+e.preventDefault()
+$('#loading').style.display = 'block'
+$('#result-hd').style.display = 'none'
+$('#result-sd').style.display = 'none'
+const url = $('#form input[name=url]').value
+const resp = await fetch(`/api/get?url=${url}`).then(r => r.json())
+if (resp.hd) {
+$('#result-hd').style.display = 'block'
+$('#result-hd').href = resp.hd
+}
+if (resp.sd) {
+$('#result-sd').style.display = 'block'
+$('#result-sd').href = resp.sd
+}
+if (resp.error) {
+alert(resp.error)
+}
+if (resp.status == 500) {
+alert('Internal server error')
+}
+$('#loading').style.display = 'none'
+}
+</script>
 </body>
 </html>
