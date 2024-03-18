@@ -26,11 +26,25 @@ a:link, a:visited {
 color: #38488f;
 text-decoration: none;
 }
+
+label,
 input[type=text] {
-width: 100%;
-padding: 12px 20px;
-margin: 8px 0;
-box-sizing: border-box;
+font-size: 0.8rem;
+letter-spacing: 1px;
+}
+
+input[type=text] {
+padding: 10px;
+max-width: 100%;
+line-height: 1.5;
+border-radius: 5px;
+border: 1px solid #ccc;
+box-shadow: 1px 1px 1px #999;
+}
+
+label {
+display: block;
+margin-bottom: 10px;
 }
 @media (max-width: 700px) {
 main {
